@@ -32,7 +32,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.release.tag_name || github.ref }}
           fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
@@ -49,11 +48,10 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     env:
-      TAG: ${{ github.event.release.tag_name || github.ref_name }}
+      TAG: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.release.tag_name || github.ref }}
           fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
@@ -149,4 +147,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload "${{ github.event.release.tag_name }}" dist/* --clobber
+          gh release upload "${{ github.ref_name }}" dist/* --clobber
