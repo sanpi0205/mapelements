@@ -59,7 +59,7 @@ dev = [
 docs = ["mkdocs>=1.5", "markdown>=3.5"]
 
 [project.urls]
-Homepage = "https://sanpi0205.github.io/mapelements/"
+Homepage = "https://github.com/sanpi0205/mapelements"
 Repository = "https://github.com/sanpi0205/mapelements"
 Issues = "https://github.com/sanpi0205/mapelements/issues"
 Documentation = "https://sanpi0205.github.io/mapelements/"
