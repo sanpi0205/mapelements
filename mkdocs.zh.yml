@@ -1,0 +1,33 @@
+site_name: mapelements
+site_description: matplotlib 的矢量地图要素：比例尺、指北针、经纬网
+site_author: zhangbo
+docs_dir: docs/zh
+site_dir: site/zh
+use_directory_urls: true
+
+theme:
+  name: mkdocs
+  locale: zh
+  highlightjs: true
+
+nav:
+  - 首页: index.md
+  - 安装: installation.md
+  - 快速开始: quickstart.md
+  - 地图要素: elements.md
+  - 投影: projections.md
+  - 版式与字体: layout.md
+  - 投稿导出: export.md
+  - API 参考: api.md
+  - 实用配方: cookbook.md
+  - 常见问题: faq.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - fenced_code
+  - toc:
+      permalink: true
+      toc_depth: 3

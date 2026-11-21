@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mapelements"
+version = "0.1.0"
+description = "Journal-quality vector map elements for matplotlib: scale bars, north arrows and graticules that stay editable in PDF/SVG."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "zhangbo" }]
+keywords = [
+    "matplotlib",
+    "cartopy",
+    "geopandas",
+    "cartography",
+    "scale-bar",
+    "north-arrow",
+    "graticule",
+    "vector-graphics",
+    "publication",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Typing :: Typed",
+]
+dependencies = [
+    "matplotlib>=3.6",
+    "numpy>=1.22",
+    "pyproj>=3.4",
+]
+
+[project.optional-dependencies]
+geo = ["geopandas>=0.13"]
+cartopy = ["cartopy>=0.22"]
+test = ["pytest>=7"]
+dev = [
+    "geopandas>=0.13",
+    "cartopy>=0.22",
+    "pytest>=7",
+    "build>=1.0",
+    "twine>=5.0",
+]
+docs = ["mkdocs>=1.5"]
+
+[project.urls]
+Homepage = "https://github.com/zhangbo/mapelements"
+Repository = "https://github.com/zhangbo/mapelements"
+Issues = "https://github.com/zhangbo/mapelements/issues"
+Documentation = "https://github.com/zhangbo/mapelements/tree/main/docs"
+Changelog = "https://github.com/zhangbo/mapelements/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mapelements = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -p no:cacheprovider"
+filterwarnings = [
+    "error::DeprecationWarning:mapelements.*",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

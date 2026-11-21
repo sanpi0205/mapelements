@@ -1,0 +1,16 @@
+include LICENSE
+include README.md
+include CHANGELOG.md
+include pyproject.toml
+include mkdocs.en.yml
+include mkdocs.zh.yml
+
+recursive-include src/mapelements *.py py.typed
+recursive-include tests *.py
+recursive-include examples *.py
+recursive-include docs *.md *.png *.py
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+prune src/mapelements.egg-info
+include docs/landing.html
