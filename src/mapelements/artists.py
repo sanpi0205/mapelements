@@ -30,8 +30,16 @@ from matplotlib.patches import FancyArrow, Rectangle
 from matplotlib.text import Text
 from matplotlib.transforms import Bbox
 
-from .geom import (GEOD, NORTH_LOCS, as_pyproj, data_per_pt, frac_per_pt,
-                   map_width_km, nice_length, transformers)
+from .geom import (
+    GEOD,
+    NORTH_LOCS,
+    as_pyproj,
+    data_per_pt,
+    frac_per_pt,
+    map_width_km,
+    nice_length,
+    transformers,
+)
 
 
 # ------------------------------------------------------------------ 基类

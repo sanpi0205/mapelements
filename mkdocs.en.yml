@@ -1,9 +1,12 @@
 site_name: mapelements
 site_description: Vector scale bars, north arrows and graticules for matplotlib
 site_author: zhangbo
+site_url: https://sanpi0205.github.io/mapelements/en/
 docs_dir: docs/en
 site_dir: site/en
 use_directory_urls: true
+hooks:
+  - docs/hooks.py
 
 theme:
   name: mkdocs

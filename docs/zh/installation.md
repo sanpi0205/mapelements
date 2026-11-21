@@ -50,7 +50,7 @@ print(mapelements.check_vector("check.pdf"))
 ## 开发安装
 
 ```bash
-git clone https://github.com/zhangbo/mapelements
+git clone https://github.com/sanpi0205/mapelements
 cd mapelements
 pip install -e ".[dev]"
 pytest

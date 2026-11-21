@@ -62,7 +62,10 @@ def check_vector(path, expect_text=None, allow_images=False) -> bool:
         print("image XObjects:", n_img)
         if n_img and not allow_images:
             ok = False
-            print("  x image object found (pass allow_images=True for imagery basemaps)")
+            print(
+                "  x image object found "
+                "(pass allow_images=True for imagery basemaps)"
+            )
 
         if expect_text:
             joined = "".join(samples)
@@ -80,7 +83,10 @@ def check_vector(path, expect_text=None, allow_images=False) -> bool:
         print(f"<text>: {n_text}   <path>: {n_path}   <image>: {n_img}")
         if n_text == 0:
             ok = False
-            print("  x no <text>: text was converted to paths (set svg.fonttype='none')")
+            print(
+                "  x no <text>: text was converted to paths "
+                "(set svg.fonttype='none')"
+            )
         if n_img and not allow_images:
             ok = False
             print("  x contains a raster <image>")

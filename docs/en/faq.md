@@ -107,6 +107,6 @@ there too.
 
 ## How do I report a bug?
 
-Open an issue at <https://github.com/zhangbo/mapelements/issues> with a minimal
+Open an issue at <https://github.com/sanpi0205/mapelements/issues> with a minimal
 reproduction: the CRS string, the axis limits, and the code that adds the
 artist.

@@ -98,5 +98,5 @@ mapelements.pub_style({"font.sans-serif": ["Microsoft YaHei", "SimHei",
 
 ## 怎么反馈问题
 
-到 <https://github.com/zhangbo/mapelements/issues> 提 issue，附最小复现：
+到 <https://github.com/sanpi0205/mapelements/issues> 提 issue，附最小复现：
 CRS 字符串、坐标轴范围、添加 artist 的那段代码。

@@ -63,7 +63,9 @@ def finish(ax, crs=None, data=None, extent=None,
     if crs is None:
         crs = getattr(ax, "projection", None)
     if crs is None:
-        raise ValueError("finish() needs crs=: pass the projected CRS explicitly for plain Axes")
+        raise ValueError(
+            "finish() needs crs=: pass the projected CRS explicitly for plain Axes"
+        )
     crs = as_pyproj(crs)
 
     # 1) 范围

@@ -24,16 +24,15 @@ Three ways to use the package::
 from importlib.metadata import PackageNotFoundError, version
 
 from .api import finish, fit
-from .artists import (Graticule, NorthArrow, ScaleBar, graticule,
-                      north_arrow, scale_bar)
+from .artists import Graticule, NorthArrow, ScaleBar, graticule, north_arrow, scale_bar
 from .export import NotVectorError, check_vector, save
 from .geom import CN_ALBERS, map_width_km, nice_length
 from .style import DOUBLE_COLUMN, MM, SINGLE_COLUMN, figure, pub_style
 
 try:
     __version__ = version("mapelements")
-except PackageNotFoundError:  # 直接从源码目录运行
-    __version__ = "0.1.0"
+except PackageNotFoundError:  # 直接从源码目录运行，且尚未安装
+    __version__ = "0.0.0+unknown"
 
 __all__ = [
     # artist 类

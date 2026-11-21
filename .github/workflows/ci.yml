@@ -8,17 +8,36 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install ruff
+        run: python -m pip install --upgrade pip ruff
+      - name: Ruff
+        run: ruff check .
+
   test:
     name: test (py${{ matrix.python-version }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.9", "3.12", "3.14"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install
@@ -28,17 +47,55 @@ jobs:
       - name: Test
         run: pytest -q
 
+  docs:
+    name: docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install docs tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "mkdocs>=1.5" "markdown>=3.5"
+      - name: Check links and code blocks
+        run: python check_docs.py
+      - name: Build English
+        run: mkdocs build -f mkdocs.en.yml -d site/en
+      - name: Build Chinese
+        run: mkdocs build -f mkdocs.zh.yml -d site/zh
+
   build:
     name: build sdist + wheel
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install build twine
-      - run: python -m build
-      - run: twine check --strict dist/*
+      - name: Build
+        run: |
+          python -m pip install --upgrade pip build twine
+          rm -rf dist
+          python -m build
+          twine check --strict dist/*
+      - name: Smoke-test wheel
+        run: |
+          python -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/python" -m pip install --upgrade pip
+          "$RUNNER_TEMP/venv/bin/pip" install dist/*.whl
+          cd "$RUNNER_TEMP"
+          "$RUNNER_TEMP/venv/bin/python" - <<'PY'
+          import importlib.resources as resources
+
+          import mapelements
+
+          assert resources.files("mapelements").joinpath("py.typed").is_file()
+          print("mapelements", mapelements.__version__)
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: dist

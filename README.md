@@ -2,8 +2,8 @@
 
 [![PyPI](https://img.shields.io/pypi/v/mapelements.svg)](https://pypi.org/project/mapelements/)
 [![Python](https://img.shields.io/pypi/pyversions/mapelements.svg)](https://pypi.org/project/mapelements/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![CI](https://github.com/zhangbo/mapelements/actions/workflows/ci.yml/badge.svg)](https://github.com/zhangbo/mapelements/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/sanpi0205/mapelements/blob/main/LICENSE)
+[![CI](https://github.com/sanpi0205/mapelements/actions/workflows/ci.yml/badge.svg)](https://github.com/sanpi0205/mapelements/actions/workflows/ci.yml)
 
 **矢量**地图要素，专为期刊插图：比例尺、指北针、经纬网。
 
@@ -16,8 +16,8 @@
 
 | 语言 | 内容 |
 |---|---|
-| [English](docs/en/index.md) | installation, quickstart, elements, projections, layout, export, API, cookbook, FAQ |
-| [中文](docs/zh/index.md) | 安装、快速开始、地图要素、投影、版式、投稿导出、API、实用配方、常见问题 |
+| [English](https://sanpi0205.github.io/mapelements/en/) | installation, quickstart, elements, projections, layout, export, API, cookbook, FAQ |
+| [中文](https://sanpi0205.github.io/mapelements/zh/) | 安装、快速开始、地图要素、投影、版式、投稿导出、API、实用配方、常见问题 |
 
 本地预览：
 
@@ -28,7 +28,7 @@ mkdocs serve -f mkdocs.zh.yml
 ```
 
 在线站点（推送 `main` 后由 `.github/workflows/docs.yml` 自动发布）：
-<https://zhangbo.github.io/mapelements/>
+<https://sanpi0205.github.io/mapelements/>
 
 文档自检（链接、锚点、图片、代码块语法）：
 
@@ -36,7 +36,7 @@ mkdocs serve -f mkdocs.zh.yml
 python check_docs.py
 ```
 
-文档里的插图由 [`docs/make_figures.py`](docs/make_figures.py) 生成：
+文档里的插图由 [`docs/make_figures.py`](https://github.com/sanpi0205/mapelements/blob/main/docs/make_figures.py) 生成：
 
 ```bash
 python docs/make_figures.py
@@ -139,7 +139,7 @@ for ax in axs.flat:
 ## 开发
 
 ```bash
-git clone https://github.com/zhangbo/mapelements
+git clone https://github.com/sanpi0205/mapelements
 cd mapelements
 pip install -e ".[dev]"
 pytest
@@ -147,4 +147,4 @@ pytest
 
 ## 许可证
 
-MIT，见 [LICENSE](LICENSE)。
+MIT，见 [LICENSE](https://github.com/sanpi0205/mapelements/blob/main/LICENSE)。

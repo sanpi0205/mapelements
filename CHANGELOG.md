@@ -4,6 +4,10 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+> 从 0.1.1 起，变更记录改由
+> [GitHub Releases](https://github.com/sanpi0205/mapelements/releases) 自动生成。
+> 本文件只保留 0.1.0 的历史记录。
+
 ## [0.1.0] - 2026-11-21
 
 ### Added
@@ -35,4 +39,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `ScaleBar.get_window_extent()` raised `AttributeError` when the figure used
   `constrained_layout` (the child artists had no figure attached yet).
 
-[0.1.0]: https://github.com/zhangbo/mapelements/releases/tag/v0.1.0
+[0.1.0]: https://github.com/sanpi0205/mapelements/releases/tag/v0.1.0

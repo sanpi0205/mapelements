@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=77"]
+requires = ["setuptools>=80", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "mapelements"
-version = "0.1.1"
+dynamic = ["version"]
 description = "Journal-quality vector map elements for matplotlib: scale bars, north arrows and graticules that stay editable in PDF/SVG."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -12,7 +12,7 @@ license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "zhangbo" }]
 keywords = [
-    "matplotlib",，
+    "matplotlib",
     "cartopy",
     "geopandas",
     "cartography",
@@ -52,17 +52,18 @@ dev = [
     "geopandas>=0.13",
     "cartopy>=0.22",
     "pytest>=7",
+    "ruff>=0.6",
     "build>=1.0",
     "twine>=5.0",
 ]
-docs = ["mkdocs>=1.5"]
+docs = ["mkdocs>=1.5", "markdown>=3.5"]
 
 [project.urls]
-Homepage = "https://github.com/sanpi0205/mapelements"
+Homepage = "https://sanpi0205.github.io/mapelements/"
 Repository = "https://github.com/sanpi0205/mapelements"
 Issues = "https://github.com/sanpi0205/mapelements/issues"
-Documentation = "https://github.com/sanpi0205/mapelements/tree/main/docs"
-Changelog = "https://github.com/sanpi0205/mapelements/blob/main/CHANGELOG.md"
+Documentation = "https://sanpi0205.github.io/mapelements/"
+Changelog = "https://github.com/sanpi0205/mapelements/releases"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
@@ -72,6 +73,9 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 mapelements = ["py.typed"]
+
+[tool.setuptools_scm]
+fallback_version = "0.0.0"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -86,3 +90,7 @@ target-version = "py39"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+ignore = ["UP009"]
+
+[tool.ruff.lint.per-file-ignores]
+"examples/*" = ["E402"]
