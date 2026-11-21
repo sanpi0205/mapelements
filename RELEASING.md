@@ -74,7 +74,9 @@ python -c "import mapelements; print(mapelements.__version__)"
 - **测试或构建失败，还没上传 PyPI**：修复后重新发布；如果 Release 已经
   公开，先删除该 Release 和 tag，再重新创建同一个版本。
 - **已经上传 PyPI**：不要删除版本。在 PyPI 上 yank，然后发布 patch。
-- **只是 Release 资产上传失败**：重跑 workflow 即可，不影响 PyPI。
+- **只是 Release 资产上传失败**：在 Actions 里运行 **Attach release assets**
+  workflow，填写对应的 tag；它会从 PyPI 下载已发布的 wheel/sdist，附带
+  `SHA256SUMS` 后挂到 Release，不影响 PyPI 上的版本。
 - **文档部署失败**：代码发布不受影响；修复文档后重跑 Docs workflow。
 
 ## 一次性设置
